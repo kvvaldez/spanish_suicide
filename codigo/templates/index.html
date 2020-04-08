@@ -1,0 +1,59 @@
+<html>
+  <head>
+  	<title>Pruebas Clasificador</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  </head>
+   <body>
+   	<center>Deteccion de Frases con tendencia al Suicidio</center> <br/> <br/>
+   	Ingrese tweet a clasificar:
+     <input type='text' id='intent'>
+     <button type='button' id ='retrieve'>Consultar</button>
+     <div id='wordResult'></div>
+   </body>
+  <script>
+    $(document).ready(function() {
+       $('#retrieve').click(function(){
+           var intencion = $('#intent').val();
+           $.ajax({
+           url: "/get_word",
+           dataType: "json",
+           data: {intencions: intencion},
+           success: function(response) {
+           //console.log(JSON.stringify(response))
+           respuesta=response
+           var htmls = ''
+           htmls+='<div>'+'Frase: '+respuesta['Frase']+'</div>'
+           if (respuesta['Intencion']!="Aprendizaje"){
+           //console.log(respuesta['Intencion'][0])
+           htmls+='<br><br>'
+           htmls+='<div>'+'Tendencia para TF-IDF: '+'</div>'
+           htmls+='<ul>'
+           for (var i = 0 ; i < respuesta['Intencion'].length; i++) {
+    			htmls+='<li>'+'	'+respuesta['Intencion'][i][0]+': '+respuesta['Intencion'][i][1]+'%</li>'
+			     }
+           htmls+='</ul>'
+
+           htmls+='<div>'+'Tendencia para Word2Vec-mean: '+'</div>'
+           htmls+='<ul>'
+           for (var i = 0 ; i < respuesta['Intencion2'].length; i++) {
+          htmls+='<li>'+' '+respuesta['Intencion2'][i][0]+': '+respuesta['Intencion2'][i][1]+'%</li>'
+           }
+			     htmls+='</ul>'
+			}
+			else{
+			htmls+='<div>'+'Intencion: '+respuesta['Intencion']+'</div>'	
+      htmls+='<div>'+'Intencion: '+respuesta['Intencion2']+'</div>'
+			}
+           $('#wordResult').html(htmls);
+           
+           //$("#wordResult").append(respuesta)
+           //console.log(response)
+          },
+          error: function(xhr) {
+            //Do Something to handle error
+         }
+         });
+       });
+    });
+  </script>
+</html>
