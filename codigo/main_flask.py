@@ -37,13 +37,13 @@ def get_intent_proba_dos(frase):
 	data={}
 	# Word2vec
 	intenciones_w2v, words_nw2v=get_intent_prob(frase_sw,tipo_model='w2v',modelo_w2v=model_w2v)
-	respuesta_w2v='Aprendizaje' if not intenciones_w2v else [(et_gestion[i],str(intenciones_w2v[i])) for i in range(len(intenciones_w2v))]
+	respuesta_w2v='no-palabra' if not intenciones_w2v else [(et_gestion[i],str(intenciones_w2v[i])) for i in range(len(intenciones_w2v))]
 
 	# TF-IDF
 	intenciones_tf, words_ntf=get_intent_prob(frase_sw,tipo_model='tf-idf',modelo_w2v=model_w2v)
-	respuesta_tf='Aprendizaje' if not intenciones_tf else [(et_gestion[i],str(intenciones_tf[i])) for i in range(len(intenciones_tf))]
+	respuesta_tf='no-palabra' if not intenciones_tf else [(et_gestion[i],str(intenciones_tf[i])) for i in range(len(intenciones_tf))]
 
-	return jsonify({'Frase': frase, 'Frase corregida': frase, 'Intencion':respuesta_tf, 'Intencion2':respuesta_w2v, 'No w2v':', '.join(words_nw2v)})
+	return jsonify({'Frase': frase, 'Intencion':respuesta_tf, 'Intencion2':respuesta_w2v, 'No w2v':', '.join(words_nw2v)})
 
 
 if __name__ == '__main__':
