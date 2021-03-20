@@ -6,7 +6,7 @@ Available:
 
 - The annotated data in the Spanish language with which the semantic classification model was trained.
 - Trained model.
-- Notebook, for cleaning repeated phrases using phrase similarity.
+- Notebook, for cleaning repeated phrases using text similarity.
 
 If you use any of these items, don't forget to cite this work ;)
 
