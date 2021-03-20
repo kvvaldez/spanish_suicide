@@ -10,14 +10,14 @@ Available:
 
 If you use any of these items, don't forget to cite this work ;)
 
-@article{Valeriano2020,
-title = {Detection of Suicidal Intent in Spanish Language Social Networks using Machine Learning},
-journal = {International Journal of Advanced Computer Science and Applications},
-doi = {10.14569/IJACSA.2020.0110489},
-url = {http://dx.doi.org/10.14569/IJACSA.2020.0110489},
-year = {2020},
-publisher = {The Science and Information Organization},
-volume = {11},
-number = {4},
-author = {Kid Valeriano and Alexia Condori-Larico and Josè Sulla-Torres}
-}
+	@article{Valeriano2020,
+	title = {Detection of Suicidal Intent in Spanish Language Social Networks using Machine Learning},
+	journal = {International Journal of Advanced Computer Science and Applications},
+	doi = {10.14569/IJACSA.2020.0110489},
+	url = {http://dx.doi.org/10.14569/IJACSA.2020.0110489},
+	year = {2020},
+	publisher = {The Science and Information Organization},
+	volume = {11},
+	number = {4},
+	author = {Kid Valeriano and Alexia Condori-Larico and Josè Sulla-Torres}
+	}
